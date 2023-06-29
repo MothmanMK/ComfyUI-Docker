@@ -19,7 +19,7 @@ RUN --mount=type=cache,target=/var/cache/zypp \
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install wheel setuptools numpy \
     && pip install --pre torch torchvision \
-        --index-url https://download.pytorch.org/whl/nightly/rocm5.4.2
+        --index-url https://download.pytorch.org/whl/nightly/rocm5.5
 
 # Deps for main app
 RUN --mount=type=cache,target=/root/.cache/pip \
@@ -28,7 +28,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 # Deps for ControlNet Preprocessors
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install -r https://raw.githubusercontent.com/Fannovel16/comfy_controlnet_preprocessors/main/requirements.txt \
-    --extra-index-url https://download.pytorch.org/whl/nightly/rocm5.4.2
+    --extra-index-url https://download.pytorch.org/whl/nightly/rocm5.5
 
 # Create a low-privilege user.
 RUN printf 'CREATE_MAIL_SPOOL=no' > /etc/default/useradd \
