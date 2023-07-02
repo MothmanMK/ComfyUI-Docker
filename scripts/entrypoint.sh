@@ -21,5 +21,4 @@ echo "Starting ComfyUI..."
 echo "########################################"
 
 cd /home/runner/ComfyUI
-
-python3 main.py --listen --port 8188 ${CLI_ARGS}
+HSA_OVERRIDE_GFX_VERSION=10.3.0 python3.10 main.py --listen --port 8188

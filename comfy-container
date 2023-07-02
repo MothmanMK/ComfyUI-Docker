@@ -1,0 +1,13 @@
+#!/bin/sh
+podman run -it \
+  --name comfyui \
+  --gpus all \
+  -p 8188:8188 \
+  -v "$(pwd)"/storage:/home/runner:z \
+  --env CLI_ARGS="--use-pytorch-cross-attention" \
+  --device=/dev/kfd --device=/dev/dri \
+  --group-add=39 --ipc=host --cap-add=SYS_PTRACE \
+  --security-opt seccomp=unconfined \
+  --user root \
+  localhost/comfyui:latest
+
